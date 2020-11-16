@@ -116,7 +116,7 @@ If we look at the next images showing some examples of predictions for the model
 
 ![Attention training](/images/att_6k_8ep_1v.JPG)
 
-We see how the model learns to Begin the sentences with a capital letter. It also learns that only one space is placed between words. 
+We see how the model learns to begin the sentences with a capital letter. It also learns that only one space is placed between words. 
 
 If we look now a prediction of the attention model we can see this:
 
