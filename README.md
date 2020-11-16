@@ -55,16 +55,36 @@ We have defined two models, one with attention and one without it, and trained b
 
 We can see here the results when we calculate WER (Word Error Rate) on the model without attention: 
 
-!(/images/a.jpg)
+!(/images/no_att_6k_8ep_wer.JPG)
 
 And here the WER data about the model with attention:
 
-!(/images/b.jpg)
+!(/images/att_6k_8ep_wer.JPG)
 
 ### Experiment 2: Number of epochs
 
+In this experiment we have trained our attention model with different number of epochs to see how this impacts to the final WER results and the final loss value. Here are the hyperparameter values and the results
+
+ | Variable | Description | Value |
+ | -- | -- | -- |
+ | embedding_size | Embedding size | 50 |
+ | batch_size | Batch size | 10 |
+ | learning_rate | Learning rate | 1x10^-4 |
+ | num_epochs | Number of epochs | variable |
+
+ * num_epochs = 3
+
+ * num_epochs = 5
+
+ * num_epochs = 8
+
+ * num_epochs = 10
+
+ * num_epochs = 12
+
 
 ### Experiment 3: Embedding size
+
 
 
 ## Problems 
