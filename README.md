@@ -99,7 +99,7 @@ In this experiment we have changed the learning rate to see how it affects the W
 
 ![Attention lr 0.0001](/images/att_6k_8ep_wer.JPG)
 
-![Attention WER 0.0002](/images/lr0002.JPG)
+![Attention WER 0.0002](/images/lr0002.png)
 
 Parameters for this experiment have been:
 
