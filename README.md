@@ -85,7 +85,19 @@ In this experiment we have trained our attention model with different number of 
 
 ### Experiment 3: Embedding size
 
+This experiment is about changing the embedding size to the attention model. We can see WER for embedding sizes 50, 125 and 175, respectively.
 
+![Attention WER 50](/images/att_6k_8ep_wer.JPG)
+
+![Attention WER 125](/images/att_6k_8ep_emb125_wer.JPG)
+
+![Attention WER 175](/images/att_6k_10ep_emb175_wer.JPG)
+
+Here we can see how does perplexity value change with every epoch if we change embedding size from 125 to 175:
+
+![Attention perplexity 125](/images/att_6k_8ep_emb125_perplexity.JPG)
+
+![Attention perplexity 175](/images/att_6k_10ep_emb175_perplexity.JPG)
 
 ## Problems 
 
