@@ -76,7 +76,7 @@ In this experiment we have trained our attention model with different number of 
 
 ![Attention batch size 10](/images/att_6k_8ep_emb125_perplexity.JPG)
 
-We can see through this images about perplexity that it reaches its minimum value when we train 7-8 epochs. Then perplexity goes down, but very slowly. 
+We can see through this images about perplexity that it reaches its minimum value when we train 7-8 epochs. Then perplexity would continue decreasing, but very slowly. 
 
 
 ### Experiment 3: Embedding size
