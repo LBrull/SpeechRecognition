@@ -110,7 +110,7 @@ Parameters for this experiment have been:
  | learning_rate | Learning rate | variable |
  | num_epochs | Number of epochs | 8 |
 
-##General results
+## General results
 
 If we look at the next images showing some examples of predictions for the model with attention we can see some interesting thigs:
 
