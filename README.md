@@ -55,11 +55,11 @@ We have defined two models, one with attention and one without it, and trained b
 
 We can see here the results when we calculate WER (Word Error Rate) on the model without attention: 
 
-!(/images/no_att_6k_8ep_wer.JPG)
+![No attention WER](/images/no_att_6k_8ep_wer.JPG)
 
 And here the WER data about the model with attention:
 
-!(/images/att_6k_8ep_wer.JPG)
+![Attention WER](/images/att_6k_8ep_wer.JPG)
 
 ### Experiment 2: Number of epochs
 
