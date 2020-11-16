@@ -47,6 +47,7 @@ Before feeding our model and begin training it we have ensured that lemmatizatio
 We have defined two models, one with attention and one without it, and trained both. Training in order to develop this experiment has been done using the same hyperparameters (embedding size, batch size, learning rate, and number of epochs) in order to test only the impact of adding attention.
 
  | Variable | Description | Value |
+ | -- | -- | -- |
  | embedding_size | Embedding size | 50 |
  | batch_size | Batch size | 10 |
  | learning_rate | Learning rate | 1x10^-4 |
