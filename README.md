@@ -63,24 +63,20 @@ And here the WER data about the model with attention:
 
 ### Experiment 2: Number of epochs
 
-In this experiment we have trained our attention model with different number of epochs to see how this impacts to the final WER results and the final loss value. Here are the hyperparameter values and the results
+In this experiment we have trained our attention model with different number of epochs to see how this impacts to the perplexity value. Here are the hyperparameter values and the results
 
  | Variable | Description | Value |
  | -- | -- | -- |
- | embedding_size | Embedding size | 50 |
- | batch_size | Batch size | 10 |
+ | embedding_size | Embedding size | 125 |
+ | batch_size | Batch size | 10-12 |
  | learning_rate | Learning rate | 1x10^-4 |
  | num_epochs | Number of epochs | variable |
 
- * num_epochs = 3
+![Attention batch size 12](/images/att_6k_8ep_emb125_bat12_perplexity.JPG)
 
- * num_epochs = 5
+![Attention batch size 10](/images/att_6k_8ep_emb125_perplexity.JPG)
 
- * num_epochs = 8
-
- * num_epochs = 10
-
- * num_epochs = 12
+We can see through this images about perplexity that it reaches its minimum value when we train 7-8 epochs. Then perplexity goes down, but very slowly. 
 
 
 ### Experiment 3: Embedding size
