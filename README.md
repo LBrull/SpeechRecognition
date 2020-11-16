@@ -63,7 +63,8 @@ And here the WER data about the model with attention:
 
 ### Experiment 2: Number of epochs
 
-In this experiment we have trained our attention model with different number of epochs to see how this impacts to the perplexity value. Here are the hyperparameter values and the results
+In this experiment we have trained our attention model with different number of epochs to see how this impacts to the perplexity value. 
+Here are the hyperparameter values and the results:
 
  | Variable | Description | Value |
  | -- | -- | -- |
@@ -89,13 +90,46 @@ This experiment is about changing the embedding size to the attention model. We 
 
 ![Attention WER 175](/images/att_6k_10ep_emb175_wer.JPG)
 
-Here we can see how does perplexity value change with every epoch if we change embedding size from 125 to 175:
 
-![Attention perplexity 125](/images/att_6k_8ep_emb125_perplexity.JPG)
+### Experiment 3: Learning rate
 
-![Attention perplexity 175](/images/att_6k_10ep_emb175_perplexity.JPG)
+In this experiment we have changed the learning rate to see how it affects the WER results in the model with attention. The results with learning rate 0.0001 and 0.0002 respectively can be seen here:
 
-## Problems 
+![Attention lr 0.0001](/images/att_6k_8ep_wer.JPG)
 
+![Attention WER 0.0002](/images/lr0002.JPG)
+
+Parameters for this experiment have been:
+
+ | Variable | Description | Value |
+ | -- | -- | -- |
+ | embedding_size | Embedding size | 125 |
+ | batch_size | Batch size | 10 |
+ | learning_rate | Learning rate | variable |
+ | num_epochs | Number of epochs | 8 |
+
+##General results
+
+If we look at the next images showing some examples of predictions for the model with attention we can see some interesting thigs:
+
+![Attention training](/images/att_6k_8ep_1v.JPG)
+
+We see how the model learns to Begin the sentences with a capital letter. It also learns that only one space is placed between words. 
+
+If we look now a prediction of the attention model we can see this:
+
+![Attention prediction](/images/att_6k_8ep_emb125_bat12_pred_example.JPG)
+
+Although the model is not able to predict what it is said in the audio, 
+it has learned the spelling of the words (it predicts real words), and inserts them in a logical order (has learned morphosyntactic skills). 
+
+## Setbacks
+
+Due to time and GPU restrictions we have had to reduce our dataset from 40000 audio files and sentences to 6000, so that the model could finish training. If we try to train with more than, aproximately, 6000 files, Google Colab's GPU goes out of RAM.  
 
 ## Conclusions
+
+
+## Future considerations
+
+If we had to improve this model in Google Colab it would be great to consider training in two separate phases: one that would encode our audio files with PASE and then save the resulting tensors, so that we could free almost 9 GB of GPU RAM, and another where we would feed the remaining part of the model and train the parameters with the whole RAM. This would allow us to use more data. 
