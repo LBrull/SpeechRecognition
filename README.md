@@ -93,7 +93,7 @@ This experiment is about changing the embedding size to the attention model. We 
 It can be seen that WER is smaller for embedding size equal to 125. So results get a little better when we increase the embedding but then get worse if we increase it a little more. 
 
 
-### Experiment 3: Learning rate
+### Experiment 4: Learning rate
 
 In this experiment we have changed the learning rate to see how it affects the WER results in the model with attention. The results with learning rate 0.0001 and 0.0002 respectively can be seen here:
 
