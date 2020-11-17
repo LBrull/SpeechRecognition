@@ -11,6 +11,20 @@ WER (Word Error Rate) is one of the mesurement methods we have used to see the p
 
 ![No attention WER](/images/wer.png)  
 
+## About the model
+
+Both models are built with a PASE encoder that recieves audio files as input and outputs those audios encoded. Models also have a decoder (RNN - GRU) that decode those vectors and output sentences/text data. 
+
+### Without Attention
+
+![No attention WER](/images/model1.png)
+
+### With Attention
+
+The model with Attention has a CNN layer before the decoder. This CNN reduces the dimensions of the vectors that the PASE encoder outputs to 1/3 of the original size. This helps Attention training because there are much less parameters. 
+
+![No attention WER](/images/model2.png)
+
 ## Hypothesis 
 
 The speech recognition model will generate much better predictions if we add Attention and are able to train with Attention.
@@ -158,8 +172,8 @@ After all the expriments we have seen which parameters work the best for the att
  | -- | -- | -- |
  | embedding_size | Embedding size | 125 |
  | batch_size | Batch size | 10 |
- | learning_rate | Learning rate | 0.0002 |
- | num_epochs | Number of epochs | 8 |
+ | learning_rate | Learning rate | 0.001 |
+ | num_epochs | Number of epochs | 6 |
 
 With this parameters and Attention we achieve next image results for WER:
 
