@@ -69,11 +69,22 @@ And here the WER data about the model with attention:
 
 ![Attention WER](/images/att_6k_8ep_wer.JPG)
 
-If we now take a look at the predictions of both models, there is an interesting result that shows how the model without attention repeats sentences and words inside the same sentence, even if this makes no sense. It does not care about what it is said in the audio, it just outputs the sentence with the highest probability. Here are some outputs for the model without attention:
+If we now take a look at the predictions of both models, there is an interesting result that shows how the model without attention repeats sentences and words inside the same sentence, even if this makes no sense. It does not care about what it is said in the audio, it just outputs the sentence with the highest probability. 
 
-![No attention repeat](/images/repeat.png)
+Here are some outputs for the model without Attention:
 
-On the other hand, if we look at some outputs for the Attention model, we see how predictions are better. It maintains some coherence between words and knows how to build more logical sentences. This can be appreciated in the next image: 
+![No attention example](/images/noatt1.png)
+![No attention example](/images/noatt2.png)
+![No attention example](/images/noatt3.png)
+
+
+On the other hand, if we look at some outputs for the Attention model, we see how predictions are better. It maintains some coherence between words and knows how to build more logical sentences. 
+
+This can be appreciated in the next images: 
+
+![Attention example](/images/att1.png)
+![Attention example](/images/att2.png)
+![Attention example](/images/att3.png)
 
 ### Experiment 2: Number of epochs
 
@@ -93,6 +104,7 @@ Here are the hyperparameter values and the results:
 
 We can see through images above (8 epochs training and 10 epochs training respectively) about perplexity. It reaches its minimum value when we train 7-8 epochs. Then, perplexity continues decreasing if we train for example 10 epochs, but very slowly, so that results are almost the same. 
 
+It can be said that, for this model, it is good to train 8 epochs. More epochs would not make any differences. 
 
 ### Experiment 3: Embedding size
 
@@ -104,7 +116,7 @@ This experiment is about changing the embedding size to the attention model. We 
 
 ![Attention WER 175](/images/att_6k_10ep_emb175_wer.JPG)
 
-It can be seen that WER is smaller for embedding size equal to 125. So results get a little better when we increase the embedding but then get worse if we increase it a little more. 
+It can be seen that WER is smaller for embedding size equal to 125. So results get a little better when we increase the embedding but then get worse if we increase it a little more.
 
 
 ### Experiment 4: Learning rate
@@ -136,20 +148,27 @@ The model is generating overfitting here: it is learning about the train data, b
 
 ## Final results
 
-After all the expriments we have seen which parameters work the best for the attention model. Now we can look at some predictions done with those parameters. 
+After all the expriments we have seen which parameters work the best for the attention model. 
 
-In the next image we can see some interesting thigs:
+ | Variable | Description | Value |
+ | -- | -- | -- |
+ | embedding_size | Embedding size | 125 |
+ | batch_size | Batch size | 10 |
+ | learning_rate | Learning rate | 0.0002 |
+ | num_epochs | Number of epochs | 8 |
+
+Now we can look at some predictions done with those parameters. In the next image we can see some interesting thigs:
 
 ![Attention training](/images/att_6k_8ep_emb125_bat12_1v.JPG)
 
 We can appreciate how the model learns to begin the sentences with a capital letter. It also learns that only one space is placed between words. 
 
-If we look now a prediction of the attention model when it is fully trained we can see this:
+If we look now at a prediction of the attention model when it is fully trained we can see this:
 
-![Attention prediction](/images/att_6k_8ep_emb125_bat12_pred_example.JPG)
+![Attention prediction](/images/prediction_ok.png)
 
 Although the model is not able to predict what it is said in the audio, 
-it has learned the spelling of the words (it predicts real words), and inserts them in a logical order (has learned morphosyntactic skills). 
+it has learned the **spelling** of the words (it predicts **real words**), and inserts them in a logical order (has learned **morphosyntactic skills**). 
 
 ## Setbacks
 
@@ -158,8 +177,16 @@ Due to time and GPU restrictions we have had to reduce our dataset from 40000 au
 ## Conclusions
 
 We have seen the difference of the model with and without Attention. 
+Predictions without Attention lack of coherence and repeat words, whereas predictions with Attention have more coherence between words. 
+In fact, model without Attention, is not able to predict logical sentences because it **looses the context** while training.
+
+Through the experiments we can appreciate too the importance of changing some parameters like the **learning rate** or the **embedding size** to achieve better results and avoid **overfitting** of the net. 
+
+We have seen how demanding can it be to train with audio. If resources are limited it is key to build and feed the model the correct way, so training can be possible. 
+
+We can conclude saying that Attention is a very important strategy to add to models working with sequences, because it avoids the model to loose the context of those sequences. A model without Attention is very limited. 
 
 
 ## Future considerations
 
-If we had to improve this model in Google Colab it would be great to consider training in two separate phases: one that would encode our audio files with PASE and then save the resulting tensors, so that we could free almost 9 GB of GPU RAM, and another where we would feed the remaining part of the model and train the parameters with the whole RAM. This would allow us to use more data. 
+If we had to improve this model in Google Colab it would be great to consider training in two separate phases: one that would encode our audio files with PASE and then save the resulting tensors, so that we could free almost 8 GB of GPU RAM, and another where we would feed the remaining part of the model and train the parameters with the whole RAM. This would allow us to use more data. 
