@@ -11,6 +11,7 @@ WER (Word Error Rate) is one of the mesurement methods we have used to see the p
 
 ![No attention WER](/images/wer.png)  
 
+
 ## About the model
 
 Both models are built with a PASE encoder that recieves audio files as input and outputs those audios encoded. Models also have a decoder (RNN - GRU) that decode those vectors and output sentences/text data. 
@@ -25,9 +26,11 @@ The model with Attention has a CNN layer before the decoder. This CNN reduces th
 
 ![No attention WER](/images/model2.png)
 
+
 ## Hypothesis 
 
 The speech recognition model will generate much better predictions if we add Attention and are able to train with Attention.
+
 
 ## Environment: Google Colab setup
 
@@ -61,6 +64,7 @@ In order to train the model, text dataset needs to be preprocessed. We have done
 * We have removed punctuation marks
 
 Before feeding our model and begin training it we have ensured that lemmatization is done to all of the sentences. 
+
 
 ## Experiments
 
@@ -102,9 +106,22 @@ This can be appreciated in the next images:
 
 ![Attention example](/images/att2.png)
 
-![Attention example](/images/att3.png)     
+![Attention example](/images/att3.png)
 
-### Experiment 2: Number of epochs
+### Experiment 2: Embedding size
+
+This experiment is about changing the embedding size to the attention model. We can see WER for embedding sizes 50, 125 and 175, respectively.
+
+![Attention WER 50](/images/att_6k_8ep_wer.JPG)
+
+![Attention WER 125](/images/att_6k_8ep_emb125_wer.JPG)
+
+![Attention WER 175](/images/att_6k_10ep_emb175_wer.JPG)
+
+It can be seen that WER is smaller for embedding size equal to 125. So results get a little better when we increase the embedding but then get worse if we increase it a little more.    
+
+
+### Experiment 3: Number of epochs
 
 In this experiment we have trained our attention model with different number of epochs to see how this impacts to the perplexity value. 
 Here are the hyperparameter values and the results:
@@ -122,19 +139,7 @@ Here are the hyperparameter values and the results:
 
 We can see through images above (8 epochs training and 10 epochs training respectively) about perplexity. It reaches its minimum value when we train 7-8 epochs. Then, perplexity continues decreasing if we train for example 10 epochs, but very slowly, so that results are almost the same. 
 
-It can be said that, for this model, it is good to train 8 epochs. More epochs would not make any differences. 
-
-### Experiment 3: Embedding size
-
-This experiment is about changing the embedding size to the attention model. We can see WER for embedding sizes 50, 125 and 175, respectively.
-
-![Attention WER 50](/images/att_6k_8ep_wer.JPG)
-
-![Attention WER 125](/images/att_6k_8ep_emb125_wer.JPG)
-
-![Attention WER 175](/images/att_6k_10ep_emb175_wer.JPG)
-
-It can be seen that WER is smaller for embedding size equal to 125. So results get a little better when we increase the embedding but then get worse if we increase it a little more.
+It can be said that, for this model, it is good to train 8 epochs with theese parameters. More epochs would not make any differences. 
 
 
 ### Experiment 4: Learning rate
@@ -164,6 +169,7 @@ Parameters for this experiment have been:
 We can see how it reaches its minimum at epoch 6 and starts going up again if we continue the training with more epochs.
 The model is generating overfitting here: it is learning about the train data, but it will be bad at predicting new data that has not been seen before. So, if we reduce the number of epochs to 6, we get the best result (71% WER). 
 
+
 ## Final results
 
 After all the expriments we have seen which parameters work the best for the attention model. 
@@ -192,9 +198,11 @@ If we look now at a prediction of the attention model when it is fully trained w
 Although the model is not able to predict what it is said in the audio, 
 it has learned the **spelling** of the words (it predicts **real words**), and inserts them in a logical order (has learned **morphosyntactic skills**). 
 
+
 ## Setbacks
 
 Due to time and GPU restrictions we have had to reduce our dataset from 40000 audio files and sentences to 6000, so that the model could finish training. If we try to train with more than, aproximately, 6000 files, Google Colab's GPU goes out of RAM.  
+
 
 ## Conclusions
 
