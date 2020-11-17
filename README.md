@@ -1,11 +1,15 @@
 # Speech Recognition model
 
-This is a Deep Learning model that gets an audio input and predicts/writes down what it is said in the audio.
+This is a Deep Learning model that gets an audio input and tries to predict/write down what it is said in the audio.
 It is written in Python with Pytorch framework and it is trained in Google Colab.
+
+Code here is uploaded as a .ipynb Notebook, so you can download and open it Google Colaboratory directly.
+
+We have done some experiments to test if our hypothesis is true and also to see how the model performs with different parameters.  
 
 ## Hypothesis 
 
-The speech recognition model will generate much better predictions if we add Attention and are able to train with attention.
+The speech recognition model will generate much better predictions if we add Attention and are able to train with Attention.
 
 ## Environment: Google Colab setup
 
@@ -60,6 +64,10 @@ We can see here the results when we calculate WER (Word Error Rate) on the model
 And here the WER data about the model with attention:
 
 ![Attention WER](/images/att_6k_8ep_wer.JPG)
+
+There is an interesting result that shows how the model without attention repeats sentences and words. It does not care about what it is said in the audio, just outputs the sentence with highest probability. Here you can see some outputs for the model without attention:
+
+![Attention WER](/images/repeat.png)
 
 ### Experiment 2: Number of epochs
 
