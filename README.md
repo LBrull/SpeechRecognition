@@ -5,7 +5,11 @@ It is written in Python with Pytorch framework and it is trained in Google Colab
 
 Code here is uploaded as a .ipynb Notebook, so you can download and open it Google Colaboratory directly.
 
-We have done some experiments to test if our hypothesis is true and also to see how the model performs with different parameters.  
+We have done some experiments to test if our hypothesis is true and also to see how the model performs with different parameters.
+
+WER (Word Error Rate) is one of the mesurement methods we have used to see the percentage of wrong words when the model predicts sentences. Next image shows how it works:
+
+![No attention WER](/images/wer.png)  
 
 ## Hypothesis 
 
@@ -65,9 +69,11 @@ And here the WER data about the model with attention:
 
 ![Attention WER](/images/att_6k_8ep_wer.JPG)
 
-There is an interesting result that shows how the model without attention repeats sentences and words. It does not care about what it is said in the audio, just outputs the sentence with highest probability. Here you can see some outputs for the model without attention:
+If we now take a look at the predictions of both models, there is an interesting result that shows how the model without attention repeats sentences and words inside the same sentence, even if this makes no sense. It does not care about what it is said in the audio, it just outputs the sentence with the highest probability. Here are some outputs for the model without attention:
 
-![Attention WER](/images/repeat.png)
+![No attention repeat](/images/repeat.png)
+
+On the other hand, if we look at some outputs for the Attention model, we see how predictions are better. It maintains some coherence between words and knows how to build more logical sentences. This can be appreciated in the next image: 
 
 ### Experiment 2: Number of epochs
 
@@ -81,11 +87,11 @@ Here are the hyperparameter values and the results:
  | learning_rate | Learning rate | 1x10^-4 |
  | num_epochs | Number of epochs | variable |
 
-![Attention batch size 12](/images/att_6k_8ep_emb125_bat12_perplexity.JPG)
+![Attention 8 epochs](/images/att_6k_8ep_emb125_perplexity.JPG)
 
-![Attention batch size 10](/images/att_6k_8ep_emb125_perplexity.JPG)
+![Attention 10 epochs](/images/att_6k_10ep_emb175_perplexity.JPG)
 
-We can see through this images about perplexity that it reaches its minimum value when we train 7-8 epochs. Then perplexity would continue decreasing, but very slowly. 
+We can see through images above (8 epochs training and 10 epochs training respectively) about perplexity. It reaches its minimum value when we train 7-8 epochs. Then, perplexity continues decreasing if we train for example 10 epochs, but very slowly, so that results are almost the same. 
 
 
 ### Experiment 3: Embedding size
@@ -128,15 +134,17 @@ Parameters for this experiment have been:
 We can see how it reaches its minimum at epoch 6 and starts going up again if we continue the training with more epochs.
 The model is generating overfitting here: it is learning about the train data, but it will be bad at predicting new data that has not been seen before. 
 
-## General results
+## Final results
 
-If we look at the next images showing some examples of predictions for the model with attention we can see some interesting thigs:
+After all the expriments we have seen which parameters work the best for the attention model. Now we can look at some predictions done with those parameters. 
 
-![Attention training](/images/att_6k_8ep_1v.JPG)
+In the next image we can see some interesting thigs:
 
-We see how the model learns to begin the sentences with a capital letter. It also learns that only one space is placed between words. 
+![Attention training](/images/att_6k_8ep_emb125_bat12_1v.JPG)
 
-If we look now a prediction of the attention model we can see this:
+We can appreciate how the model learns to begin the sentences with a capital letter. It also learns that only one space is placed between words. 
+
+If we look now a prediction of the attention model when it is fully trained we can see this:
 
 ![Attention prediction](/images/att_6k_8ep_emb125_bat12_pred_example.JPG)
 
@@ -148,6 +156,8 @@ it has learned the spelling of the words (it predicts real words), and inserts t
 Due to time and GPU restrictions we have had to reduce our dataset from 40000 audio files and sentences to 6000, so that the model could finish training. If we try to train with more than, aproximately, 6000 files, Google Colab's GPU goes out of RAM.  
 
 ## Conclusions
+
+We have seen the difference of the model with and without Attention. 
 
 
 ## Future considerations
