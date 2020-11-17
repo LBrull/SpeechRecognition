@@ -74,8 +74,10 @@ If we now take a look at the predictions of both models, there is an interesting
 Here are some outputs for the model without Attention:
 
 ![No attention example](/images/noatt1.png)
+
 ![No attention example](/images/noatt2.png)
-![No attention example](/images/noatt3.png)
+
+![No attention example](/images/noatt3.png)     
 
 
 On the other hand, if we look at some outputs for the Attention model, we see how predictions are better. It maintains some coherence between words and knows how to build more logical sentences. 
@@ -83,8 +85,10 @@ On the other hand, if we look at some outputs for the Attention model, we see ho
 This can be appreciated in the next images: 
 
 ![Attention example](/images/att1.png)
+
 ![Attention example](/images/att2.png)
-![Attention example](/images/att3.png)
+
+![Attention example](/images/att3.png)     
 
 ### Experiment 2: Number of epochs
 
