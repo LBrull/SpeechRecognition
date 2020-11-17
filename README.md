@@ -109,6 +109,8 @@ In this experiment we have changed the learning rate to see how it affects the W
 
 ![Attention WER 0.0002](/images/lr0002.png)
 
+We can see how WER gets the best with learning rate equal to 0.0002.
+
 Parameters for this experiment have been:
 
  | Variable | Description | Value |
@@ -117,6 +119,13 @@ Parameters for this experiment have been:
  | batch_size | Batch size | 10 |
  | learning_rate | Learning rate | variable |
  | num_epochs | Number of epochs | 8 |
+
+ With both learning rate values (0.0001 and 0.0002), perplexity goes down and reaches its minimum arround epoch 7-8.
+ But, if we now change the learning rate to 0.001, perplexity behaves different:
+
+![Attention training](/images/perplexity_up.png)
+
+We can see how it reaches its minimum at epoch 6 and starts going up again if we continue the training with more epochs.
 
 ## General results
 
