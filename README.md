@@ -87,7 +87,7 @@ This can be appreciated in the next images:
 ![Attention example](/images/att1.png)
 
 ![Attention example](/images/att2.png)
-
+     
 ![Attention example](/images/att3.png)     
 
 ### Experiment 2: Number of epochs
@@ -169,7 +169,7 @@ We can appreciate how the model learns to begin the sentences with a capital let
 
 If we look now at a prediction of the attention model when it is fully trained we can see this:
 
-![Attention prediction](/images/prediction_ok.png)
+![Attention prediction](/images/pred_ok.png)
 
 Although the model is not able to predict what it is said in the audio, 
 it has learned the **spelling** of the words (it predicts **real words**), and inserts them in a logical order (has learned **morphosyntactic skills**). 
