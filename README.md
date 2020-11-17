@@ -177,7 +177,7 @@ After all the expriments we have seen which parameters work the best for the att
 
 With this parameters and Attention we achieve next image results for WER:
 
-![Attention training](/images/bestwer.JPG)
+![Attention training](/images/bestwer.png)
 
 Now we can look at some predictions done with those parameters. In the next image we can see some interesting thigs:
 
