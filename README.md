@@ -22,7 +22,7 @@ Both models are built with a PASE encoder that recieves audio files as input and
 
 ### With Attention
 
-The model with Attention has a CNN layer before the decoder. This CNN reduces the dimensions of the vectors that the PASE encoder outputs to 1/3 of the original size. This helps Attention training because there are much less parameters. 
+The model with Attention has a CNN layer before the decoder. This CNN reduces the dimensions of the vectors that the PASE encoder outputs to 1/3 of the original size. This helps Attention training because there are much less parameters. It has also a pooling layer and a ReLu.
 
 ![No attention WER](/images/model2.png)
 
@@ -51,26 +51,34 @@ It is possible to run/train this model in Google Colab. In order to do this, you
 
 * Finally we only need to select "type of environment" -> GPU at Google Colab and run all the "Install & Import" section instructions.
 
+
 ## The dataset
 
 We have used a Flickr dataset that consists of 40000 audio files and 40000 text files. In the text files you can read what it is said in the audio files. 
 
 ## Data preprocessing
 
+### Text data
+
 In order to train the model, text dataset needs to be preprocessed. We have done the next modifications to all the sentences in order to create the dictionary:
 
-* We have removed the capital letters
+* We have removed capital letters
 * We have removed accent marks
 * We have removed punctuation marks
 
 Before feeding our model and begin training it we have ensured that lemmatization is done to all of the sentences. 
 
+At the end of the preprocessing we have about 6,7k unique words and 39 characters.
+
+### Audio data
+
+We have 40000 audio files with a sample rate of 16k Hz.
 
 ## Experiments
 
 ### Experiment 1: Attention vs No Attention
 
-We have defined two models, one with attention and one without it, and trained both. Training in order to develop this experiment has been done using the same hyperparameters (embedding size, batch size, learning rate and number of epochs) in order to test only the impact of adding attention.
+We have defined two models, one with attention and one without it, and trained both. Training in order to develop this experiment has been done using the same hyperparameters (embedding size, batch size, learning rate, and number of epochs) in order to test only the impact of adding attention.
 
  | Variable | Description | Value |
  | -- | -- | -- |
