@@ -162,7 +162,7 @@ Parameters for this experiment have been:
 ![Attention training](/images/perplexity_up.png)
 
 We can see how it reaches its minimum at epoch 6 and starts going up again if we continue the training with more epochs.
-The model is generating overfitting here: it is learning about the train data, but it will be bad at predicting new data that has not been seen before. 
+The model is generating overfitting here: it is learning about the train data, but it will be bad at predicting new data that has not been seen before. So, if we reduce the number of epochs to 6, we get the best result (71% WER). 
 
 ## Final results
 
