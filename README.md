@@ -70,7 +70,7 @@ Before feeding our model and begin training it we have ensured that lemmatizatio
 
 ### Experiment 1: Attention vs No Attention
 
-We have defined two models, one with attention and one without it, and trained both. Training in order to develop this experiment has been done using the same hyperparameters (embedding size, batch size, learning rate, and number of epochs) in order to test only the impact of adding attention.
+We have defined two models, one with attention and one without it, and trained both. Training in order to develop this experiment has been done using the same hyperparameters (embedding size, batch size, learning rate and number of epochs) in order to test only the impact of adding attention.
 
  | Variable | Description | Value |
  | -- | -- | -- |
