@@ -87,7 +87,7 @@ This can be appreciated in the next images:
 ![Attention example](/images/att1.png)
 
 ![Attention example](/images/att2.png)
-     
+
 ![Attention example](/images/att3.png)     
 
 ### Experiment 2: Number of epochs
@@ -161,11 +161,15 @@ After all the expriments we have seen which parameters work the best for the att
  | learning_rate | Learning rate | 0.0002 |
  | num_epochs | Number of epochs | 8 |
 
+With this parameters and Attention we achieve next image results for WER:
+
+![Attention training](/images/bestwer.JPG)
+
 Now we can look at some predictions done with those parameters. In the next image we can see some interesting thigs:
 
 ![Attention training](/images/att_6k_8ep_emb125_bat12_1v.JPG)
 
-We can appreciate how the model learns to begin the sentences with a capital letter. It also learns that only one space is placed between words. 
+We can appreciate how the model learns some words. It also learns that only one space is placed between words. 
 
 If we look now at a prediction of the attention model when it is fully trained we can see this:
 
